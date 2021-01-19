@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <referenceBlock name="cms_page" remove="true" />
+    <referenceContainer name="main" remove="true" />
+
+    <referenceContainer name="main.content">
+        <container name="slider_produtos" htmlTag="div" htmlClass="slider_produtos" />
+    </referenceContainer>
+
+    <referenceContainer name="slider_produtos">
+    <block class="Magento\Cms\Block\Page" as="pragascategory" />
+    </referenceContainer>
+
+    <referenceContainer name="main.content">
+        <block class="Ulmod\Productslider\Block\Slider\Items" as="maisvisto" affetr="slider_produtos">
+            <action method="setSliderId">
+                <argument xsi:type="number">1</argument>
+            </action>
+        </block>
+    </referenceContainer>
+
+    <referenceContainer name="main.content">
+        <block class="Ulmod\Productslider\Block\Slider\Items" as="recomendado" after="maisvisto">
+            <action method="setSliderId">
+                <argument xsi:type="number">2</argument>
+            </action>
+        </block>
+    </referenceContainer>
+
+    <referenceContainer name="main.content">
+        <container name="email" htmlTag="div" htmlClass="email" />
+    </referenceContainer>
+
+     <referenceContainer name="main.content">
+        <block class="Ulmod\Productslider\Block\Slider\Items" as="ofertasrecentes" after="email">
+            <action method="setSliderId">
+                <argument xsi:type="number">3</argument>
+            </action>
+        </block>
+    </referenceContainer>
+</page>

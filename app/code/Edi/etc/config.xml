@@ -1,0 +1,29 @@
+<?xml version="1.0" ?>
+<config >
+    <modules>
+        <testehandle>
+            <version>1.0.0</version>
+        </testehandle>
+    </modules>
+    <global>
+        <moduls>
+            <testehandle>
+                <class>testehandlemodel</class>
+            </testehandle>
+        </moduls>
+    </global>
+    <frontend>
+        <events>
+            <controler_action_layout_before>
+                <observer>
+                    <testehandleobserver>
+                        <type>model</type>
+                        <class>observer</class>
+                        <method>adicionarHandle</method>
+                    </testehandleobserver>
+                </observer>
+            </controler_action_layout_before>
+
+        </events>
+    </frontend>
+</config>
